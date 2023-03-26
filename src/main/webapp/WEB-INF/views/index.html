@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>View List Pictures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">List Pictures Information</h2>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Picture code</th>
+                    <th scope="col">Width</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Material</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="picture : ${pictures}">
+                    <td th:text="${picture.getId()}"></td>
+                    <td th:text="${picture.getPicture_code()}"></td>
+                    <td th:text="${picture.getWidth()}"></td>
+                    <td th:text="${picture.getHeight()}"></td>
+                    <td th:text="${picture.getMaterial()}"></td>
+                    <td th:text="${picture.getDescription()}"></td>
+                    <td th:text="${picture.getPrice()}"></td>
+                    <td><a th:href="@{/pictures/{id}/edit(id=${picture.getId()})}">edit</a>
+                        <a th:href="@{/pictures/{id}/delete(id=${picture.getId()})}">delete</a>
+                        <a th:href="@{/pictures/{id}/view(id=${picture.getId()})}">view</a>
+                    </td>
+                </tr>
+                <tr>
+                    <a th:href="@{/pictures/create}">Create new Picture</a>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

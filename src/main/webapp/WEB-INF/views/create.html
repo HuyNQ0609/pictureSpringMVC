@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Create New Picture</title>
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="mb-4">Create New Picture</h2>
+  <form th:action="@{/pictures/save}" th:object="${pictures}"
+        method="POST" novalidate="novalidate">
+    <div class="form-group">
+      <label>Picture Code: </label>
+      <input type="text" class="form-control" th:field="*{picture_code}"/>
+    </div>
+    <div class="form-group">
+      <label>Width:</label>
+      <input type="number" class="form-control" th:field="*{width}"/>
+    </div>
+    <div class="form-group">
+      <label>Height:</label>
+      <input type="number" class="form-control" th:field="*{height}"/>
+    </div>
+    <div class="form-group">
+      <label>Material:</label>
+      <input type="text" class="form-control" th:field="*{material}"/>
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      <input type="text" class="form-control" th:field="*{description}"/>
+    </div>
+    <div class="form-group">
+      <label>Price:</label>
+      <input type="number" class="form-control" th:field="*{price}"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <div class="form-group">
+      <a th:href="@{/pictures}">Back to List Picture</a>
+    </div>
+  </form>
+</div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

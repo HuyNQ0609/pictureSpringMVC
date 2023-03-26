@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Information Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-4">
+                <div class="card-header">
+                    Picture Information
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label>Picture code</label>
+                            <input type="text" class="form-control" th:value="${pictures.getPicture_code()}">
+                        </div>
+                        <div class="form-group">
+                            <label>Width</label>
+                            <input type="number" class="form-control" th:value="${pictures.getWidth()}">
+                        </div>
+                        <div class="form-group">
+                            <label>Height</label>
+                            <input type="number" class="form-control" th:value="${pictures.getHeight()}">
+                        </div>
+                        <div class="form-group">
+                            <label>Material</label>
+                            <input type="text" class="form-control" th:value="${pictures.getMaterial()}">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control" th:value="${pictures.getDescription()}">
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" class="form-control" th:value="${pictures.getPrice()}">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <a th:href="@{/pictures}">Back to picture list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
